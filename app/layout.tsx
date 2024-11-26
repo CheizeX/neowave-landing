@@ -63,9 +63,9 @@ export default function RootLayout({
         className={`dark ${transducerRegular.variable} ${transducerMedium.variable} ${transducerHairline.variable} ${transducerBold.variable} ${transducerBlack.variable}
         ${biotcountMonoLight.variable} ${biotCountMonoRegular.variable} ${biotCountMonoBook.variable}
         antialiased`}>
+        <SpeedInsights />
         {children}
         <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );
