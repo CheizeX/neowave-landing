@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useId, useState } from "react";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
+import Particles from "react-particles";
+import { tsParticles } from "tsparticles-engine";
+import { loadSlim } from "tsparticles-slim";
 import { SparklesProps } from "@/components/HomePage/Footer/Footer.types";
 
 export function Sparkles({
@@ -11,27 +12,21 @@ export function Sparkles({
   minSize = null,
   density = 800,
   speed = 1.5,
-  minSpeed = null,
   opacity = 1,
   direction = "none",
   opacitySpeed = 3,
   minOpacity = null,
   color = "#ffffff",
-  mousemove = false,
   hover = false,
   background = "transparent",
   options = {},
 }: SparklesProps) {
   const [isReady, setIsReady] = useState(false);
-
   useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
+    loadSlim(tsParticles).then(() => {
       setIsReady(true);
     });
   }, []);
-
   const id = useId();
   const defaultOptions = {
     background: {
@@ -44,7 +39,6 @@ export function Sparkles({
       zIndex: 1,
     },
     fpsLimit: 300,
-
     interactivity: {
       events: {
         onClick: {
@@ -53,25 +47,9 @@ export function Sparkles({
         },
         onHover: {
           enable: hover,
-          mode: "grab",
-          parallax: {
-            enable: mousemove,
-            force: 60,
-            smooth: 10,
-          },
+          mode: "repulse",
         },
-        resize: {
-          enable: true,
-        },
-      },
-      modes: {
-        push: {
-          quantity: 4,
-        },
-        repulse: {
-          distance: 200,
-          duration: 0.4,
-        },
+        resize: true,
       },
     },
     particles: {
@@ -79,33 +57,10 @@ export function Sparkles({
         value: color,
       },
       move: {
+        direction: direction,
         enable: true,
-        direction: direction || "none",
-        speed: {
-          min: minSpeed || speed / 130,
-          max: speed,
-        },
-        straight: true,
-      },
-      collisions: {
-        absorb: {
-          speed: 2,
-        },
-        bounce: {
-          horizontal: {
-            value: 1,
-          },
-          vertical: {
-            value: 1,
-          },
-        },
-        enable: false,
-        maxSpeed: 50,
-        mode: "bounce" as const,
-        overlap: {
-          enable: true,
-          retries: 0,
-        },
+        speed: speed,
+        straight: false,
       },
       number: {
         value: density,
@@ -117,7 +72,6 @@ export function Sparkles({
         },
         animation: {
           enable: true,
-          sync: false,
           speed: opacitySpeed,
         },
       },
