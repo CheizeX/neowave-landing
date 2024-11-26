@@ -13,8 +13,6 @@ body {
 }
 
 @layer base {
-
-@layer base {
   :root {
     --background: 0 0% 0%;
     --foreground: 20 14.3% 4.1%;
@@ -22,7 +20,7 @@ body {
     --card-foreground: 20 14.3% 4.1%;
     --popover: 0 0% 100%;
     --popover-foreground: 20 14.3% 4.1%;
-    --primary: 14.5 95.8% 53.3%; 
+    --primary: 14.5 95.8% 53.3%;
     --primary-foreground: 60 9.1% 97.8%;
     --secondary: 60 4.8% 95.9%;
     --secondary-foreground: 24 9.8% 10%;
@@ -34,7 +32,7 @@ body {
     --destructive-foreground: 60 9.1% 97.8%;
     --border: 20 5.9% 90%;
     --input: 20 5.9% 90%;
-    --ring: 14.5 95.8% 53.3%; 
+    --ring: 14.5 95.8% 53.3%;
     --radius: 0.5rem;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
@@ -50,7 +48,7 @@ body {
     --card-foreground: 60 9.1% 97.8%;
     --popover: 20 14.3% 4.1%;
     --popover-foreground: 60 9.1% 97.8%;
-    --primary: 14.5 95.8% 53.3%; 
+    --primary: 14.5 95.8% 53.3%;
     --primary-foreground: 60 9.1% 97.8%;
     --secondary: 12 6.5% 15.1%;
     --secondary-foreground: 60 9.1% 97.8%;
@@ -62,28 +60,61 @@ body {
     --destructive-foreground: 60 9.1% 97.8%;
     --border: 12 6.5% 15.1%;
     --input: 12 6.5% 15.1%;
-    --ring: 14.5 95.8% 53.3%; 
+    --ring: 14.5 95.8% 53.3%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
 
-}
-
-@layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
-    
   }
-}
 
-.hiddenscrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  .hiddenscrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  /* Estilos CSS para la animación */
+  @keyframes border-beam {
+    0% {
+      offset-distance: 0%;
+    }
+    100% {
+      offset-distance: 100%;
+    }
+  }
+
+  /* Prefijos de navegador */
+  @-webkit-keyframes border-beam {
+    0% {
+      -webkit-offset-distance: 0%;
+    }
+    100% {
+      -webkit-offset-distance: 100%;
+    }
+  }
+
+  @-moz-keyframes border-beam {
+    0% {
+      -moz-offset-distance: 0%;
+    }
+    100% {
+      -moz-offset-distance: 100%;
+    }
+  }
+
+  @-o-keyframes border-beam {
+    0% {
+      -o-offset-distance: 0%;
+    }
+    100% {
+      -o-offset-distance: 100%;
+    }
+  }
 }

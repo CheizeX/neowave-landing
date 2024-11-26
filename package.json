@@ -34,10 +34,18 @@
     "@types/node": "^20.17.8",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "autoprefixer": "^10.4.20",
     "eslint": "^8.57.1",
     "eslint-config-next": "15.0.3",
     "postcss": "^8.4.49",
+    "postcss-preset-env": "^10.1.1",
     "tailwindcss": "^3.4.15",
     "typescript": "^5.7.2"
-  }
+  },
+  "browserslist": [
+    "Chrome >= 80",
+    "Firefox >= 80",
+    "Safari >= 12",
+    "Edge >= 80"
+  ]
 }

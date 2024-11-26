@@ -71,6 +71,9 @@ export default {
       },
       keyframes: {
         "border-beam": {
+          "0%": {
+            "offset-distance": "0%",
+          },
           "100%": {
             "offset-distance": "100%",
           },
