@@ -1,4 +1,5 @@
 import { siteConfig } from "@/config/site-config";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -62,6 +63,7 @@ export default function RootLayout({
         ${biotcountMonoLight.variable} ${biotCountMonoRegular.variable} ${biotCountMonoBook.variable}
         antialiased`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
