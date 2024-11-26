@@ -23,7 +23,7 @@ const Footer = () => {
         </span>
       </div>
 
-      <div className='relative h-40 lg:h-96 w-full overflow-hidden [mask-image:radial-gradient(100%_50%,white,transparent)] before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,#fa4715a1,transparent_90%)] before:opacity-100  after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/2] after:w-[200%] after:rounded-[50%] after:shadow-[0_-5px_15px_-5px_rgba(250,69,21,1)] after:bg-[radial-gradient(circle_at_47%_top,#571105,#000000_4%)] after:opacity-100'>
+      <div className='relative h-40 lg:h-96 w-full overflow-hidden a-image before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,#fa4715a1,transparent_30%)] before:opacity-100 after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/2] after:w-[200%] after:rounded-[50%] after:shadow-[0_-5px_15px_-5px_rgba(250,69,21,1)] after:bg-[radial-gradient(circle_at_47%_top,#2d0b05,#000000_4%)] after:opacity-100'>
         <Sparkles
           color='#FA4515'
           density={300}
