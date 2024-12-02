@@ -8,8 +8,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { SiteNavigationLinks, SitePaths } from "../../config/site-types";
+import useAuthModal from "@/store/useAuthModal";
 
 const Navbar = () => {
+  const { openLoginModal, openSignupModal } = useAuthModal();
+
   return (
     <>
       <motion.header
@@ -49,10 +52,13 @@ const Navbar = () => {
           <div className='flex justify-between items-center border border-white rounded-full lg:h-11 lg:w-52 lg:px-[3px] p-[2px]'>
             <Button
               variant='ghost'
+              onClick={openLoginModal}
               className='hover:scale-105 transform transition-transform hover:bg-transparent lg:text-lg'>
               LOGIN
             </Button>
-            <Button className='bg-foreground text-background hover:bg-foreground hover:opacity-90 lg:text-lg'>
+            <Button
+              onClick={openSignupModal}
+              className='bg-foreground text-background hover:bg-foreground hover:opacity-90 lg:text-lg'>
               SIGNUP
             </Button>
           </div>

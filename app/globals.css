@@ -124,3 +124,7 @@ body {
     -webkit-mask-image: -webkit-radial-gradient(50% 50%, rgba(250, 69, 21, 1), transparent);
   }
 }
+
+.no-scroll {
+  overflow: hidden;
+}

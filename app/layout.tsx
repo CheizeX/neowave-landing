@@ -1,8 +1,8 @@
+import ApolloWrapper from "@/components/Providers/ApolloWrapper";
 import { siteConfig } from "@/config/site-config";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import AuthModal from "../components/Auth/Auth";
 import "./globals.css";
 
 const transducerRegular = localFont({
@@ -63,9 +63,10 @@ export default function RootLayout({
         className={`dark ${transducerRegular.variable} ${transducerMedium.variable} ${transducerHairline.variable} ${transducerBold.variable} ${transducerBlack.variable}
         ${biotcountMonoLight.variable} ${biotCountMonoRegular.variable} ${biotCountMonoBook.variable}
         antialiased`}>
-        <SpeedInsights />
-        {children}
-        <Analytics />
+        <ApolloWrapper>
+          <AuthModal />
+          {children}
+        </ApolloWrapper>
       </body>
     </html>
   );

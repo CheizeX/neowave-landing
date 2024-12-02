@@ -1,3 +1,8 @@
+import MacroChart from "@/components/HomePage/AdvancedIndicatorsSection/Charts/Macro/MacroChart";
+import FinancialChart from "@/components/HomePage/AdvancedIndicatorsSection/Charts/Financial/FinancialChart";
+import AdvancedChart from "./Charts/Advanced/AdvancedChart";
+import TradingChart from "./Charts/Trading/TradingChart";
+
 export const ADVANCED_INDICATORS_CARDS = [
   {
     text: (
@@ -8,10 +13,10 @@ export const ADVANCED_INDICATORS_CARDS = [
         </strong>
         <br />
         <strong className='font-[family-name:var(--font-transducer-regular)]'>
-          data to keep
+          indicators
         </strong>
         <br />
-        of the big picture.
+        to stay informed.
       </>
     ),
     number: "01",
@@ -23,12 +28,11 @@ export const ADVANCED_INDICATORS_CARDS = [
     },
     modalContent: {
       component: (
-        <div className='p-8 bg-zinc-900 text-white min-w-[300px]'>
-          <h2 className='text-2xl mb-4'>Macroeconomic Data</h2>
-          <p>
-            Detailed information about macroeconomic indicators will be
-            displayed here.
-          </p>
+        <div className='flex flex-col gap-8 justify-between text-white h-[410px] min-w-[300px] py-2 pb-0'>
+          <h2 className='text-xl pb-3 pl-4 font-bold border-b-2 border-foreground'>
+            Macroeconomic Indicators
+          </h2>
+          <MacroChart />
         </div>
       ),
     },
@@ -55,11 +59,11 @@ export const ADVANCED_INDICATORS_CARDS = [
     },
     modalContent: {
       component: (
-        <div className='p-8 bg-zinc-900 text-white min-w-[300px]'>
-          <h2 className='text-2xl mb-4'>Business Metrics</h2>
-          <p>
-            Detailed information about business metrics will be displayed here.
-          </p>
+        <div className='flex flex-col gap-8 justify-between text-white h-[410px] min-w-[300px] py-2 pb-0'>
+          <h2 className='text-xl pb-3 pl-4 font-bold border-b-2 border-foreground'>
+            Financial Indicators
+          </h2>
+          <FinancialChart />
         </div>
       ),
     },
@@ -85,12 +89,11 @@ export const ADVANCED_INDICATORS_CARDS = [
     },
     modalContent: {
       component: (
-        <div className='p-8 bg-zinc-900 text-white min-w-[300px]'>
-          <h2 className='text-2xl mb-4'>Financial Strategy</h2>
-          <p>
-            Detailed information about financial strategy will be displayed
-            here.
-          </p>
+        <div className='flex flex-col gap-8 justify-between text-white h-[410px] min-w-[300px] py-2 pb-0'>
+          <h2 className='text-xl pb-3 pl-4 font-bold border-b-2 border-foreground'>
+            Advanced Indicators
+          </h2>
+          <AdvancedChart />
         </div>
       ),
     },
@@ -118,11 +121,9 @@ export const ADVANCED_INDICATORS_CARDS = [
     },
     modalContent: {
       component: (
-        <div className='p-8 bg-zinc-900 text-white min-w-[300px]'>
-          <h2 className='text-2xl mb-4'>Trading Charts</h2>
-          <p>
-            Detailed information about trading charts will be displayed here.
-          </p>
+        <div className='flex flex-col gap-8 justify-between text-white h-[410px] min-w-[300px] py-2 pb-0'>
+          <h2 className='text-xl pb-3 pl-4 font-bold border-b-2 border-foreground'>{`Trading Indicators - Apple Inc.`}</h2>
+          <TradingChart />
         </div>
       ),
     },
@@ -149,11 +150,13 @@ export const ADVANCED_INDICATORS_CARDS = [
     },
     modalContent: {
       component: (
-        <div className='p-8 bg-zinc-900 text-white min-w-[300px]'>
-          <h2 className='text-2xl mb-4'>Market Evaluations</h2>
-          <p>
-            Detailed information about market evaluations will be displayed
-            here.
+        <div className='flex flex-col gap-8 justify-between text-white h-[410px] min-w-[300px] py-2 pb-0'>
+          <h2 className='text-xl pb-3 pl-4 font-bold border-b-2 border-foreground'>
+            Multi Block
+          </h2>
+          <p className='flex items-center justify-center w-full h-full '>
+            Take notes, add videos, and create a custom block with the Multi
+            Block.
           </p>
         </div>
       ),

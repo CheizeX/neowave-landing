@@ -4,12 +4,14 @@ import { Button } from "@/components/ui/button";
 import { SiteNavigationLinks, SitePaths } from "@/config/site-types";
 import { handleScroll } from "@/lib/utils";
 import { useStore } from "@/store/store";
+import useAuthModal from "@/store/useAuthModal";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
 export const MobileNav = () => {
   const { isNavOpen, toggleNav } = useStore();
+  const { openLoginModal, openSignupModal } = useAuthModal();
 
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
@@ -18,10 +20,12 @@ export const MobileNav = () => {
   };
 
   const handleLogin = () => {
+    openLoginModal();
     toggleNav();
   };
 
   const handleSignup = () => {
+    openSignupModal();
     toggleNav();
   };
 

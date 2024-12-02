@@ -4,6 +4,7 @@ import { CustomCardProps } from "@/components/HomePage/AdvancedIndicatorsSection
 import { useWindowSize } from "@/hooks/useWindowSize";
 import { AnimatePresence, motion } from "framer-motion";
 import { XIcon } from "lucide-react";
+import { useEffect } from "react";
 
 export const CustomCard = ({
   text,
@@ -17,6 +18,18 @@ export const CustomCard = ({
 }: CustomCardProps) => {
   const { width } = useWindowSize();
   const isMobile = width && width < 1024;
+
+  useEffect(() => {
+    if (isExpanded) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, [isExpanded]);
 
   return (
     <>
@@ -71,7 +84,7 @@ export const CustomCard = ({
       <AnimatePresence>
         {isExpanded && modalContent && (
           <motion.div
-            className='fixed inset-0 z-50 flex items-center justify-center bg-none'
+            className='fixed inset-0 z-[9999] flex items-center justify-center backdrop-saturate-0 backdrop-blur-[2px] bg-opacity-50'
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -79,10 +92,8 @@ export const CustomCard = ({
             role='dialog'
             aria-modal='true'>
             <motion.div
-              className='relative bg-white rounded-lg shadow-lg overflow-auto'
+              className='relative rounded-lg shadow-lg overflow-auto border-2 border-foreground bg-black'
               style={{
-                background:
-                  "linear-gradient(to bottom left, rgba(25, 25, 25, 1), #1c1c1c)",
                 boxShadow: "0 0 20px rgba(255, 255, 255, 0)",
                 width: "60vw",
                 height: "50vh",
@@ -108,11 +119,11 @@ export const CustomCard = ({
               <button
                 onClick={toggleExpand}
                 aria-label='Close'
-                className='absolute top-2 right-2 p-2 text-gray-500 hover:text-gray-700 z-10'>
+                className='absolute top-3 right-3 text-foreground hover:text-gray-700 z-10'>
                 <XIcon className='w-6 h-6' />
               </button>
               {modalContent.component && (
-                <div className='p-4'>{modalContent.component}</div>
+                <div className='h-full w-full'>{modalContent.component}</div>
               )}
             </motion.div>
           </motion.div>
