@@ -15,7 +15,8 @@ type ResetFormData = z.infer<typeof resetSchema>;
 
 export function ResetPassword() {
   const [isLoading, setIsLoading] = useState(false);
-  const [_error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  console.log({ error });
   const router = useRouter();
   const { resetPassword } = useAuth();
 
